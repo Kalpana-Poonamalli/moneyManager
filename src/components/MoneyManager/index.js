@@ -35,14 +35,7 @@ class MoneyManager extends Component {
   }
 
   typeChange = event => {
-    const {amount, type} = this.state
     this.setState({type: event.target.value})
-
-    if (type === transactionTypeOptions[0].displayText) {
-      this.setState(prevState => ({income: prevState.income + amount}))
-    } else if (type === transactionTypeOptions[1].displayText) {
-      this.setState(prevState => ({expenses: prevState.expenses + amount}))
-    }
   }
 
   isButtonClick = event => {
@@ -62,11 +55,28 @@ class MoneyManager extends Component {
       amount: '',
       type: transactionTypeOptions[0].displayText,
     }))
+
+    if (type === transactionTypeOptions[0].displayText) {
+      this.setState(prevState => ({
+        income: prevState.income + parseInt(amount),
+      }))
+    } else if (type === transactionTypeOptions[1].displayText) {
+      this.setState(prevState => ({
+        expenses: prevState.expenses + parseInt(amount),
+      }))
+    }
+  }
+
+  deletedItemsList = id => {
+    const {historyList} = this.state
+    const availableList = historyList.filter(eachItem => eachItem.id !== id)
+    this.setState({historyList: availableList})
   }
 
   render() {
     const {income, expenses, title, amount, type, historyList} = this.state
     const balance = income - expenses
+
     return (
       <div className="mm-container">
         <div className="mm-inner-container">
@@ -120,7 +130,7 @@ class MoneyManager extends Component {
                   <option
                     className="option"
                     key={eachItem.optionId}
-                    value={eachItem.displayText}
+                    value={eachItem.optionId}
                   >
                     {eachItem.displayText}
                   </option>
@@ -143,7 +153,11 @@ class MoneyManager extends Component {
               <p className="h">Type</p>
             </div>
             {historyList.map(eachItem => (
-              <TransactionItem eachItem={eachItem} key={eachItem.id} />
+              <TransactionItem
+                eachItem={eachItem}
+                key={eachItem.id}
+                deletedItemsList={this.deletedItemsList}
+              />
             ))}
           </div>
         </div>

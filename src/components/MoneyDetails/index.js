@@ -12,8 +12,10 @@ const MoneyDetails = props => {
           className="mm-img"
         />
         <div className="f">
-          <h1 className="mm-card-heading">Your Balance</h1>
-          <p className="mm-card-para">Rs.{balance}</p>
+          <p className="mm-card-heading">Your Balance</p>
+          <p className="mm-card-para" data-testid="balanceAmount">
+            Rs.{balance}
+          </p>
         </div>
       </div>
       <div className="mm-card1">
@@ -23,8 +25,10 @@ const MoneyDetails = props => {
           className="mm-img"
         />
         <div className="f">
-          <h1 className="mm-card-heading">Your Income</h1>
-          <p className="mm-card-para">Rs.{income}</p>
+          <p className="mm-card-heading">Your Income</p>
+          <p className="mm-card-para" data-testid="incomeAmount">
+            Rs.{income}
+          </p>
         </div>
       </div>
       <div className="mm-card2">
@@ -34,8 +38,10 @@ const MoneyDetails = props => {
           className="mm-img"
         />
         <div className="f">
-          <h1 className="mm-card-heading">Your Expenses</h1>
-          <p className="mm-card-para">Rs.{expenses}</p>
+          <p className="mm-card-heading">Your Expenses</p>
+          <p className="mm-card-para" data-testid="expensesAmount">
+            Rs.{expenses}
+          </p>
         </div>
       </div>
     </li>

@@ -2,9 +2,23 @@
 .t-container {
   list-style-type: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  border: 1px #7e858e solid;
 }
 .head {
   color: #7e858e;
   font-size: 16px;
+}
+.delete {
+  height: 20px;
+  width: 20px;
+}
+.dlt {
+  background-color: transparent;
+  border: none;
+}
+.items {
+  box-sizing: content-box;
+  padding-left: 6px;
+  text-align: left;
 }

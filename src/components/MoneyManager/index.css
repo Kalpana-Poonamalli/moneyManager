@@ -79,9 +79,10 @@
 }
 .fl {
   display: flex;
-  justify-content: space-evenly;
   border: 1px #7e858e solid;
 }
 .h {
   font-weight: 500;
+  margin-left: 40px;
+  margin-right: 50px;
 }
