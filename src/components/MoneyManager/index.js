@@ -18,8 +18,8 @@ const transactionTypeOptions = [
 // Write your code here
 class MoneyManager extends Component {
   state = {
-    income: '',
-    expenses: '',
+    income: 0,
+    expenses: 0,
     title: '',
     amount: '',
     type: transactionTypeOptions[0].displayText,
