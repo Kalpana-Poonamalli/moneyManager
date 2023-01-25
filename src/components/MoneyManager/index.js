@@ -67,10 +67,20 @@ class MoneyManager extends Component {
     }
   }
 
-  deletedItemsList = id => {
+  deletedItemsList = (id, amount, type) => {
     const {historyList} = this.state
     const availableList = historyList.filter(eachItem => eachItem.id !== id)
-    this.setState({historyList: availableList})
+    this.setState({
+      historyList: availableList,
+    })
+    if (type === 'Income') {
+      this.setState(prevState => {
+        income: prevState.income - amount
+      })
+    }
+    this.setState(prevState => {
+      expenses: prevState.expenses - amount
+    })
   }
 
   render() {
@@ -130,7 +140,7 @@ class MoneyManager extends Component {
                   <option
                     className="option"
                     key={eachItem.optionId}
-                    value={eachItem.optionId}
+                    value={eachItem.displayText}
                   >
                     {eachItem.displayText}
                   </option>

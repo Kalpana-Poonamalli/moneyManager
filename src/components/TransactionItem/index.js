@@ -6,13 +6,13 @@ const TransactionItem = props => {
   const {id, title, amount, type} = eachItem
 
   const itemsList = () => {
-    deletedItemsList(id)
+    deletedItemsList(id, amount, type)
   }
 
   return (
     <li className="t-container">
       <p className="items">{title}</p>
-      <p className="items">{amount}</p>
+      <p className="items">Rs {amount}</p>
       <p className="items">{type}</p>
       <button
         type="button"
