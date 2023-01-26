@@ -74,13 +74,13 @@ class MoneyManager extends Component {
       historyList: availableList,
     })
     if (type === 'Income') {
-      this.setState(prevState => {
-        income: prevState.income - amount
-      })
+      this.setState(prevState => ({
+        income: prevState.income - amount,
+      }))
     }
-    this.setState(prevState => {
-      expenses: prevState.expenses - amount
-    })
+    this.setState(prevState => ({
+      expenses: prevState.expenses - amount,
+    }))
   }
 
   render() {
